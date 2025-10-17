@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BenchBase" Name="AF_FabricatorController">
+    <defName>AF_FabricatorController</defName>
+    <label>Fabricator Controller</label>
+    <description>TODO</description>
+    <thingClass>Building</thingClass>
+    <size>(3,2)</size>
+    <tickerType>Normal</tickerType>
+    <costList>
+        <Steel>150</Steel>
+        <ComponentIndustrial>8</ComponentIndustrial>
+        <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <graphicData>
+      <texPath>Things/Building/Production/ResearchBenchSimple</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(5,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>2800</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <ResearchSpeedFactor>0.75</ResearchSpeedFactor>
+    </statBases>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <fillPercent>0.5</fillPercent>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <designationCategory>Production</designationCategory>
+    <uiOrder>2600</uiOrder>
+    <surfaceType>Item</surfaceType>
+    <building>
+      <paintable>false</paintable>
+      <!-- <workTableRoomRole>Laboratory</workTableRoomRole> -->
+    </building>
+    <comps>
+        <li Class="AutoFabricator.CompProperties_FabricatorController">
+            <rootCategories>
+                <li>Weapons</li>
+                <li>Apparel</li>
+                <li>BodyParts</li>
+                <li>Manufactured</li>
+            </rootCategories>   
+            <BlackListCategory>
+                <li>WeaponsMeleeBladelink</li>
+                <li>WeaponsUnique</li>
+                <li>BodyPartsNatural</li>
+                <li>BodyPartsArchotech</li>
+            </BlackListCategory>
+        </li>
+        <li Class="CompProperties_Power">
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>150</basePowerConsumption>
+        </li>
+      
+        <li Class="AutoFabricator.CompProperties_Cable">
+            
+        </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BenchBase">
+    <defName>AF_AutoFabricator</defName>
+    <label>AutoFabricator</label>
+    <description>TODO</description>
+    <thingClass>Building</thingClass>
+    <size>(3,2)</size>
+    <tickerType>Normal</tickerType>
+    <costList>
+        <Steel>150</Steel>
+        <ComponentIndustrial>8</ComponentIndustrial>
+        <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <graphicData>
+      <texPath>Things/Building/Production/ResearchBenchSimple</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(5,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>2800</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <ResearchSpeedFactor>0.75</ResearchSpeedFactor>
+    </statBases>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <fillPercent>0.5</fillPercent>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <designationCategory>Production</designationCategory>
+    <uiOrder>2600</uiOrder>
+    <surfaceType>Item</surfaceType>
+    <building>
+      <paintable>false</paintable>
+      <!-- <workTableRoomRole>Laboratory</workTableRoomRole> -->
+    </building>
+    <comps>
+        <li Class="AutoFabricator.CompProperties_AutoFabricator">
+          <baseProductionSpeed>1.5</baseProductionSpeed>
+        </li>
+        <li Class="CompProperties_Power">
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>750</basePowerConsumption>
+            <idlePowerDraw>50</idlePowerDraw>
+        </li>
+        <li Class="CompProperties_AffectedByFacilities">
+            <linkableFacilities>
+                <li>AF_FabricatorQualityModule</li>
+                <li>AF_FabricatorSpeedModule</li>
+            </linkableFacilities>
+        </li>
+        <li Class="AutoFabricator.CompProperties_Cable">
+            
+        </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>AF_FabricatorQualityModule</defName>
+    <label>Quality Module</label>
+    <description>TODO</description>
+    <graphicData>
+      <texPath>Things/Building/Furniture/WallLamp/WallLamp</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+      <drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
+      <drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
+      <drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <uiIconPath>Things/Building/Furniture/WallLamp/WallLamp_MenuIcon</uiIconPath>
+    <!-- <researchPrerequisites><li></li></researchPrerequisites> -->
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>Standable</passability>
+    <terrainAffordanceNeeded IsNull="True" />
+    <pathCost>0</pathCost>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+      <Mass>20</Mass>
+      <Flammability>0.7</Flammability>
+      <MarketValue>2000</MarketValue>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>50</Steel>
+      <Plasteel>60</Plasteel>
+      <Gold>150</Gold>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <ComponentSpacer>10</ComponentSpacer>
+    </costList>
+    <building>
+      <isEdifice>false</isEdifice>
+      <isAttachment>true</isAttachment>
+    </building>
+    <designationCategory>Misc</designationCategory>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>80</basePowerConsumption>
+      </li>
+      <li Class="AutoFabricator.CompProperties_FabricatorQualityModule">
+        <moreWorkNeeded>2.0</moreWorkNeeded>
+        <upgradeChance>0.65</upgradeChance>
+      </li>
+      <li Class="CompProperties_Facility">
+        <maxSimultaneous>4</maxSimultaneous>
+        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+        <maxDistance>4</maxDistance>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>Placeworker_AttachedToWall</li>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <uiIconScale>0.85</uiIconScale>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>AF_FabricatorSpeedModule</defName>
+    <label>Speed Module</label>
+    <description>TODO</description>
+    <graphicData>
+      <texPath>Things/Building/Furniture/WallLamp/WallLamp</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+      <drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
+      <drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
+      <drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <uiIconPath>Things/Building/Furniture/WallLamp/WallLamp_MenuIcon</uiIconPath>
+    <!-- <researchPrerequisites><li></li></researchPrerequisites> -->
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>Standable</passability>
+    <terrainAffordanceNeeded IsNull="True" />
+    <pathCost>0</pathCost>
+
+    
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+      <Mass>20</Mass>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <building>
+      <isEdifice>false</isEdifice>
+      <isAttachment>true</isAttachment>
+    </building>
+    <designationCategory>Misc</designationCategory>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>80</basePowerConsumption>
+      </li>
+      <li Class="AutoFabricator.CompProperties_FabricatorSpeedModule">
+          <workSpeedMultiplier>1.25</workSpeedMultiplier>
+      </li>
+      <li Class="CompProperties_Facility">
+        <maxSimultaneous>4</maxSimultaneous>
+        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+        <maxDistance>4</maxDistance>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>Placeworker_AttachedToWall</li>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <uiIconScale>0.85</uiIconScale>
+  </ThingDef>
+
+  <!-- <ThingDef ParentName="AF_FabricatorController">
+    <defName>AF_FabricatorController_Apparel</defName>
+    <label>Fabricator Controller(Apparel)</label>
+    <description>TODO</description>
+    <comps>
+        <li Class="AutoFabricator.CompProperties_FabricatorController">
+            <rootCategories>
+                <li>Apparel</li>
+            </rootCategories>   
+        </li>
+        <li Class="CompProperties_Power">
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>150</basePowerConsumption>
+        </li>
+      
+        <li Class="AutoFabricator.CompProperties_Cable">
+            
+        </li>
+    </comps>
+  </ThingDef> -->
+
+  <!-- <ThingDef ParentName="AF_FabricatorController">
+    <defName>AF_FabricatorController_Apparel</defName>
+    <label>Fabricator Controller(Apparel)</label>
+    <description>TODO</description>
+    <comps>
+        <li Class="AutoFabricator.CompProperties_FabricatorController">
+            <rootCategories>
+                <li>Apparel</li>
+            </rootCategories>   
+        </li>
+        <li Class="CompProperties_Power">
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>150</basePowerConsumption>
+        </li>
+      
+        <li Class="AutoFabricator.CompProperties_Cable">
+            
+        </li>
+    </comps>
+  </ThingDef> -->
+
+</Defs>

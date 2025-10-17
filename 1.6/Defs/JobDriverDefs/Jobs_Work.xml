@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <JobDef>
+    <defName>HaulToFabricator</defName>
+    <driverClass>AutoFabricator.JobDriver_HaulToFabricator</driverClass>
+    <reportString>hauling to fabricator.</reportString>
+    <suspendable>false</suspendable>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

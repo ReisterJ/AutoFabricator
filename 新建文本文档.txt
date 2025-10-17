@@ -1,0 +1,13 @@
+你是一位资深rimworld mod创作者，通过阅读https://rimworldwiki.com/wiki/Modding_Tutorials网站的mod教程获取了很多mod创作相关内容，现在你需要完成一个mod，需求如下：
+现在需要制作一个自动合成平台，通过数据线缆与合成控制平台相连接，并且一个合成平台同时只能与一个控制平台相连接。通过控制平台发出订单指令来让合成平台制作对应的物品，物品合成原料和工作时间这部分可先留下接口后续实现。合成平台拥有两种模块，品质模块和提速模块，这两种模块会分别提高产物的品质和生产速度。
+提示如下：
+1.连接合成平台和控制平台的数据线缆可直接参考rimworld中电缆的工作方式，你可以较为简单的实现一个线缆网络，最好使用TickInterval函数来实现tick函数以避免过多性能消耗。
+2.对于合成控制平台，请在xml中继承"BuildingBase"，占地为(2,3)，具体的功能实现通过Comp来实现。在C#中实现一个类Comp_FabricatorController。
+3.对于合成平台，请在xml中继承"BuildingBase",占地为（1,3），具体的功能实现通过Comp来实现。在C#中实现一个类Comp_AutoFabricator。
+4.对于模块，请在xml中继承"BuildingBase",占地为（1,1），具体的功能实现通过Comp来实现。品质模块需要在C#中实现一个类Comp_FabricatorQualityModule，提速模块需要在C#中实现一个类Comp_FabricatorSpeedModule。
+5.平台与模块的交互细节如下：
+(1)Comp_AutoFabricator和Comp_FabricatorController通过线缆网络检测是否连接；
+(2)Comp_FabricatorController拥有一个gizmo，命名为ControlPad，点击之后会绘制一个UI，这个UI的左侧拥有一个类似于储藏区的列菜单，包含了所有可以合成的物品（不能为建筑），目前只需要武器（ThingCategoryDef为Weapons），衣物（ThingCategoryDef为Apparel）。一级菜单可以参考rimworld储藏区的存储菜单模式按照ThingCategoryDef来排列，点击其中一个分类之后会展示出下属的物品，再次点击会将下属物品折叠；下属的物品按行排列。点击一个物品之后UI的右侧则会绘制一个可以供用户输入合成数量的窗口，默认合成数量为1。窗口下方有一个确定按钮，输入合成数量或者默认为1的情况下点击确定按钮就会将该订单发送给连接的Comp_AutoFabricator，即需要合成物品的DefName和合成数量。如果Comp_FabricatorController没有连接Comp_AutoFabricator该gizmo不可用。
+(3)Comp_AutoFabricator一次只能完成一种订单，在接收到Comp_FabricatorController发送的订单之后，根据其DefName找到对应的costlist确定原材料以及对应的WorkToMake确定合成工作量，再根据合成数量确定需要的原材料数目和总工作量ProductionWorkNeeded。之后还需要一个WorkGiver创建一个搬运工作需求来让殖民地小人将原料搬运到合成平台处，这里你可以参考rimworld运输仓货物搬运工作需求的实现。原料填充完毕之后则开始工作；Comp_AutoFabricator有一个基础工作速度BaseProductionSpeed，你需要实现一个Production函数，参数为int interval，用于在TickInterval函数当中根据经过的tick数来计算合成工作量。合成工作量达到ProductionWorkNeeded之后则利用GenSpawn产生对应的物品放置在合成台周围。
+(4)品质模块需要在CompProperties_FabricatorQualityModule中定义工作量增加量MoreWorkNeeded,提速模块需要在CompProperties_FabricatorSpeedModule中定义WorkSpeedMultiplier。模块与自动合成平台的连接可以通过Comp_AffectedByFacilities来实现，Comp_AutoFabricator遍历连接的facilities之后如果有这两种模块则获得对应的提升。注意，品质模块仅在合成的物品有品质（即拥有CompQuality的物品）才会让合成的物品品质偏移+1。
+你现在只需要生成xml和C#代码，具体的数值后面会修改。请确保产生的代码是符合rimworld游戏的xml和C#代码模式的代码，请勿自己编造不存在的字段。                                                                                                                                                                                                                        
