@@ -83,7 +83,7 @@
               "RelativeDocumentMoniker": "AutoFarbicator\\Window_FabricatorControl.cs",
               "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControl.cs",
               "RelativeToolTip": "AutoFarbicator\\Window_FabricatorControl.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAADwvysAAAANAAAA",
+              "ViewState": "AQIAAAYBAAAAAAAAAAAIwCABAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-24T13:40:24.378Z",
               "EditorCaption": ""
@@ -98,8 +98,7 @@
               "RelativeToolTip": "AutoFarbicator\\Util_Production.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAACwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T19:01:06.878Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T19:01:06.878Z"
             },
             {
               "$type": "Document",
@@ -109,7 +108,7 @@
               "RelativeDocumentMoniker": "AutoFarbicator\\Window_FabricatorControlExtended.cs",
               "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControlExtended.cs",
               "RelativeToolTip": "AutoFarbicator\\Window_FabricatorControlExtended.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAwwEsAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-11T11:51:22.488Z",
               "EditorCaption": ""
@@ -124,8 +123,7 @@
               "RelativeToolTip": "AutoFarbicator\\Comp_FabricatorController.cs",
               "ViewState": "AQIAAEIAAAAAAAAAAAAcwGEAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T12:27:42.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T12:27:42.079Z"
             },
             {
               "$type": "Document",
@@ -150,8 +148,7 @@
               "RelativeToolTip": "AutoFarbicator\\ProductionOrder.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAG0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-02T11:35:55.713Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-02T11:35:55.713Z"
             },
             {
               "$type": "Bookmark",
@@ -167,8 +164,7 @@
               "RelativeToolTip": "AutoFarbicator\\JobDriver_HaulToFabricator.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAAAAFcAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T17:38:15.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T17:38:15.268Z"
             },
             {
               "$type": "Document",
@@ -180,8 +176,7 @@
               "RelativeToolTip": "AutoFarbicator\\WorkGiver_FabricatorHaul.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAAQwCQAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T17:25:57.508Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T17:25:57.508Z"
             },
             {
               "$type": "Document",
@@ -204,8 +199,7 @@
               "RelativeToolTip": "AutoFarbicator\\Comp_Fabricator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T15:24:57.165Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T15:24:57.165Z"
             },
             {
               "$type": "Document",
@@ -217,8 +211,7 @@
               "RelativeToolTip": "AutoFarbicator\\Comp_Cable.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAiwDwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T15:23:36.863Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T15:23:36.863Z"
             },
             {
               "$type": "Document",
@@ -230,8 +223,7 @@
               "RelativeToolTip": "AutoFarbicator\\Comp_FabricatorQualityModule.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T13:41:42.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T13:41:42.53Z"
             },
             {
               "$type": "Document",
@@ -243,8 +235,7 @@
               "RelativeToolTip": "AutoFarbicator\\Comp_FabricatorSpeedModule.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABoAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T13:41:12.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T13:41:12.942Z"
             },
             {
               "$type": "Bookmark",

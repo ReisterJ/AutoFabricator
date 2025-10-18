@@ -38,10 +38,13 @@ namespace AutoFabricator
 
         public override void PostOpen()
         {
+            base.PostOpen();
+            /*
             foreach (var orderkv in controller.OrderAllocationDict)
             {
                 Log.Message(orderkv.Key.ProductDef.defName + " allocated to " + (orderkv.Value != null ? orderkv.Value?.TryGetComp<Comp_AutoFabricator>()?. FabricatorID.ToString() : "None") );
             }
+            */
         }
         public override Vector2 InitialSize => new Vector2(900f, 600f);
 
@@ -275,6 +278,7 @@ namespace AutoFabricator
 
 
             //choose fabricator
+            
             TaggedString FabricatorLabel = ((chosenFab != null) ? chosenFab.FabricatorID.Translate() : "ChooseFabricator".Translate());
             if (Widgets.ButtonText(new Rect(x, y, 120f, 30f), FabricatorLabel))
             {
@@ -291,7 +295,7 @@ namespace AutoFabricator
                     options.Add(new FloatMenuOption("FabricatorsAllBusy".Translate(), null));
                 Find.WindowStack.Add(new FloatMenu(options));
             }
-
+            
 
             if (Widgets.ButtonText(new Rect(x + 40f, rect.yMax - 80f, 120f, 32f), "Confirm"))
             {
