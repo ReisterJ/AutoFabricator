@@ -59,8 +59,10 @@
             <BlackListCategory>
                 <li>WeaponsMeleeBladelink</li>
                 <li>WeaponsUnique</li>
+                <li>BodyPartsSimple</li>
                 <li>BodyPartsNatural</li>
                 <li>BodyPartsArchotech</li>
+                <li>Textiles</li>
             </BlackListCategory>
         </li>
         <li Class="CompProperties_Power">

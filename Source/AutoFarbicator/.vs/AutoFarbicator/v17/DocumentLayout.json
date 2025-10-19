@@ -3,36 +3,44 @@
   "WorkspaceRootPath": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|e:\\workstation\\rimworld\\task\\autofabricator\\source\\autofarbicator\\autofarbicator\\window_fabricatorcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\window_fabricatorcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\window_fabricatorcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\window_fabricatorcontrolextended.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\window_fabricatorcontrolextended.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\comp_fabricatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\comp_fabricatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\util_production.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\util_production.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\workgiver_fabricatorhaul.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\workgiver_fabricatorhaul.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\comp_fabricatorqualitymodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\comp_fabricatorqualitymodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\window_fabricatorcontrolextended.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\window_fabricatorcontrolextended.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\comp_autofabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\jobdriver_haultofabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\jobdriver_haultofabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|e:\\workstation\\rimworld\\task\\autofabricator\\source\\autofarbicator\\autofarbicator\\comp_autofabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\comp_autofabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\comp_fabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\comp_fabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\comp_fabricatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\comp_fabricatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\comp_cable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\comp_cable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\comp_fabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\comp_fabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\comp_fabricatorqualitymodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\comp_fabricatorqualitymodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\productionorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,14 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\comp_fabricatorspeedmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\comp_fabricatorspeedmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\util_production.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\util_production.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\autofarbicator\\jobdriver_haultofabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71B2137D-2F6C-4B72-8500-6FA6D18A4725}|AutoFarbicator\\AutoFabricator.csproj|solutionrelative:autofarbicator\\jobdriver_haultofabricator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|AutoFabricator||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
@@ -61,7 +61,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 93,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -77,70 +77,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Window_FabricatorControl.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControl.cs",
-              "RelativeDocumentMoniker": "AutoFarbicator\\Window_FabricatorControl.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControl.cs",
-              "RelativeToolTip": "AutoFarbicator\\Window_FabricatorControl.cs",
-              "ViewState": "AQIAAAYBAAAAAAAAAAAIwCABAAA9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T13:40:24.378Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Util_Production.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Util_Production.cs",
-              "RelativeDocumentMoniker": "AutoFarbicator\\Util_Production.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Util_Production.cs",
-              "RelativeToolTip": "AutoFarbicator\\Util_Production.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACwAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T19:01:06.878Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Window_FabricatorControlExtended.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControlExtended.cs",
-              "RelativeDocumentMoniker": "AutoFarbicator\\Window_FabricatorControlExtended.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControlExtended.cs",
-              "RelativeToolTip": "AutoFarbicator\\Window_FabricatorControlExtended.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAwwEsAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T11:51:22.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Comp_FabricatorController.cs",
-              "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_FabricatorController.cs",
-              "RelativeDocumentMoniker": "AutoFarbicator\\Comp_FabricatorController.cs",
-              "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_FabricatorController.cs",
-              "RelativeToolTip": "AutoFarbicator\\Comp_FabricatorController.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAcwGEAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T12:27:42.079Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Comp_AutoFabricator.cs",
               "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_AutoFabricator.cs",
               "RelativeDocumentMoniker": "AutoFarbicator\\Comp_AutoFabricator.cs",
               "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_AutoFabricator.cs",
               "RelativeToolTip": "AutoFarbicator\\Comp_AutoFabricator.cs",
-              "ViewState": "AQIAAIUBAAAAAAAAAAAIwKUBAAAAAAAA",
+              "ViewState": "AQIAAPoAAAAAAAAAAAAqwE4AAABqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-24T13:38:23.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
+              "Title": "Window_FabricatorControl.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControl.cs",
+              "RelativeDocumentMoniker": "AutoFarbicator\\Window_FabricatorControl.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControl.cs",
+              "RelativeToolTip": "AutoFarbicator\\Window_FabricatorControl.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAowEAAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T13:40:24.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Util_Production.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Util_Production.cs",
+              "RelativeDocumentMoniker": "AutoFarbicator\\Util_Production.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Util_Production.cs",
+              "RelativeToolTip": "AutoFarbicator\\Util_Production.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:01:06.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Window_FabricatorControlExtended.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControlExtended.cs",
+              "RelativeDocumentMoniker": "AutoFarbicator\\Window_FabricatorControlExtended.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Window_FabricatorControlExtended.cs",
+              "RelativeToolTip": "AutoFarbicator\\Window_FabricatorControlExtended.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEsAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T11:51:22.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Comp_FabricatorController.cs",
+              "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_FabricatorController.cs",
+              "RelativeDocumentMoniker": "AutoFarbicator\\Comp_FabricatorController.cs",
+              "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_FabricatorController.cs",
+              "RelativeToolTip": "AutoFarbicator\\Comp_FabricatorController.cs",
+              "ViewState": "AQIAANwAAAAAAAAAAAAuwAYBAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T12:27:42.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ProductionOrder.cs",
               "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\ProductionOrder.cs",
               "RelativeDocumentMoniker": "AutoFarbicator\\ProductionOrder.cs",
@@ -156,27 +157,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "JobDriver_HaulToFabricator.cs",
               "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\JobDriver_HaulToFabricator.cs",
               "RelativeDocumentMoniker": "AutoFarbicator\\JobDriver_HaulToFabricator.cs",
               "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\JobDriver_HaulToFabricator.cs",
               "RelativeToolTip": "AutoFarbicator\\JobDriver_HaulToFabricator.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAAFcAAAAOAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAIwEMAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T17:38:15.268Z"
+              "WhenOpened": "2025-10-06T17:38:15.268Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "WorkGiver_FabricatorHaul.cs",
               "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\WorkGiver_FabricatorHaul.cs",
               "RelativeDocumentMoniker": "AutoFarbicator\\WorkGiver_FabricatorHaul.cs",
               "ToolTip": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\WorkGiver_FabricatorHaul.cs",
               "RelativeToolTip": "AutoFarbicator\\WorkGiver_FabricatorHaul.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAQwCQAAAAlAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAADwvxYAAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T17:25:57.508Z"
+              "WhenOpened": "2025-10-06T17:25:57.508Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -191,7 +194,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Comp_Fabricator.cs",
               "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_Fabricator.cs",
               "RelativeDocumentMoniker": "AutoFarbicator\\Comp_Fabricator.cs",
@@ -203,7 +206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Comp_Cable.cs",
               "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_Cable.cs",
               "RelativeDocumentMoniker": "AutoFarbicator\\Comp_Cable.cs",
@@ -215,7 +218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Comp_FabricatorQualityModule.cs",
               "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_FabricatorQualityModule.cs",
               "RelativeDocumentMoniker": "AutoFarbicator\\Comp_FabricatorQualityModule.cs",
@@ -227,7 +230,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Comp_FabricatorSpeedModule.cs",
               "DocumentMoniker": "E:\\workstation\\rimworld\\task\\AutoFabricator\\Source\\AutoFarbicator\\AutoFarbicator\\Comp_FabricatorSpeedModule.cs",
               "RelativeDocumentMoniker": "AutoFarbicator\\Comp_FabricatorSpeedModule.cs",

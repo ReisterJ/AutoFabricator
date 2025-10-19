@@ -212,7 +212,20 @@ namespace AutoFabricator
                     string line = $"{order.ProductDef.LabelCap}{stuffStr} x{order.Quantity}" +" "+ "Remaining".Translate() +" : " +order.leftQuantity+" ";
                     if (controller.OrderAllocationDict.ContainsKey(order))
                     {
-                        line += controller.OrderAllocationDict[order] != null ? controller.OrderAllocationDict[order]?.TryGetComp<Comp_AutoFabricator>()?.FabricatorID.ToString() : "None";
+                        if (controller.OrderAllocationDict[order]!= null)
+                        {
+                            Comp_AutoFabricator af = controller.OrderAllocationDict[order].TryGetComp<Comp_AutoFabricator>();
+                            if(af != null)
+                            {
+                                line += af.FabricatorID;
+                                line += " " + "Status".Translate() + ":" + (af.StateCheck() ? "Working".Translate() : "Broken".Translate() );
+                            }
+                            else
+                            {
+                               line += "None";
+                            }
+                        }
+                        
                     }
                     
                     Rect lineRect = new Rect(10f, curY, viewRect.width - 60f, 40f);

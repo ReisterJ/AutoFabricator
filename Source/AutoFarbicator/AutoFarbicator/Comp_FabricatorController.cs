@@ -165,6 +165,7 @@ namespace AutoFabricator
                 fab.DisconnectFromController();
             }
             connectedFabricator = null;
+            AutoFabricators.Clear();
         }
         
 
@@ -256,9 +257,10 @@ namespace AutoFabricator
                     if (Order_Allocation[pd] == null || !Order_Allocation[pd].Spawned)
                     {
                         bool onefabworking = false;
+                        
                         foreach (var autofab in AutoFabricators)
                         {
-                            if (autofab.currentOrder.CurrentIndex == pd.CurrentIndex)
+                            if (autofab.currentOrder?.CurrentIndex == pd.CurrentIndex)
                             {
                                 Order_Allocation[pd] = autofab.parent;
                                 onefabworking = true;

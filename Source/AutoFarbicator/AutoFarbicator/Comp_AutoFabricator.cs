@@ -84,7 +84,10 @@ namespace AutoFabricator
         public override void CompTick()
         {
             base.CompTick();
-            
+            if(!this.HasPower)
+            {
+                //AbondonCurrentOrder(false);
+            }
             
         }
 
@@ -124,7 +127,7 @@ namespace AutoFabricator
                 return;
             }
 
-            if (connectedController.parent != null)
+            if (connectedController?.parent != null)
             {
                 if (connectedControllers?.Contains(connectedController.parent) == true)
                 {
@@ -162,7 +165,7 @@ namespace AutoFabricator
         //HAUL AND STORAGE
         public bool NeedHaulWork()
         {
-            if(currentOrder != null && pending)
+            if(currentOrder != null && pending && this.StateCheck())
             {
                 return true;
             }
@@ -185,11 +188,11 @@ namespace AutoFabricator
             Log.Message("try store def " + def + " name :" + def.defName + " count : " + count);
 
             storedMaterials[def] += count;
-            /*
+            
             Thing thing = ThingMaker.MakeThing(def);
             thing.stackCount = count;
             innerContainer.TryAdd(thing, true);
-            */
+            
             return true;
         }
 
@@ -392,16 +395,7 @@ namespace AutoFabricator
 
         public void EjectAllMaterials()
         {
-            foreach (var kv in storedMaterials)
-            {
-                if (kv.Value > 0)
-                {
-                    Thing thing = ThingMaker.MakeThing(kv.Key);
-                    thing.stackCount = kv.Value;
-                    
-                    GenPlace.TryPlaceThing(thing, this.parent.InteractionCell, this.parent.Map, ThingPlaceMode.Near);
-                }
-            }
+            innerContainer.TryDropAll(parent.InteractionCell, parent.Map, ThingPlaceMode.Near);
             storedMaterials.Clear();
             innerContainer.ClearAndDestroyContents();
         }
@@ -526,18 +520,7 @@ namespace AutoFabricator
         {
             if (currentOrder != null)
             {
-                /*
-                foreach (var kv in storedMaterials)
-                {
-                    if (kv.Value > 0)
-                    {
-                        Thing thing = ThingMaker.MakeThing(kv.Key);
-                        thing.stackCount = kv.Value;
-
-                        GenPlace.TryPlaceThing(thing, this.parent.InteractionCell, previousMap, ThingPlaceMode.Near);
-                    }
-                }
-                */
+                
                 storedMaterials.Clear();
                 innerContainer.ClearAndDestroyContents();
                 currentOrder = null;
