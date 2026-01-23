@@ -12,12 +12,12 @@ namespace AutoFabricator
     public class ProductionOrder : IExposable,ILoadReferenceable
     {
         //public string ProductDefName;
-        public int Quantity;
+        public int Quantity; // 总生产次数
         public float TotalWorkNeeded;
         public int worktomake;
 
-        public int stackCountPerBill = 1;
-        public int leftQuantity;
+        public int stackCountPerBill = 1; // 每次生产的数量
+        public int leftQuantity; // 剩余生产次数
         public bool StuffCategoryAllowed => ProductDef.stuffCategories?.Count > 0;
         public ThingDef ProductDef = null;
 
@@ -82,8 +82,8 @@ namespace AutoFabricator
     public class SpecialProductionOption
     {
         public ThingDef ProductDef;
-        public int productionCountPerBill = 1;
-        public int workToMake = 1000; 
+        public int productionCountPerBill = 1; //每次生产数量，xml指定
+        public int workToMake = 1000;  
         public List<ThingDefCountClass> specialCostList = new List<ThingDefCountClass>();
         public List<StuffCategoryDef> specialStuffCategories = new List<StuffCategoryDef>();
         public int stuffCount = 20;

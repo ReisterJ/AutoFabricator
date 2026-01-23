@@ -28,6 +28,15 @@ namespace AutoFabricator
             return 6000;
         }
 
+        public static bool HasQualityComp(ThingDef def)
+        {
+            if (def == null) return false;
+            if(def.comps != null && def.comps.Any(comp => comp.compClass == typeof(CompQuality)))
+            {
+                return true;
+            }
+            return false;
+        }
         public static bool IsAllowedForProduction(ThingDef def)
         {
             if(null == def)

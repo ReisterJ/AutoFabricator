@@ -1,6 +1,10 @@
-锘縰sing RimWorld;
+using AutoFabricator;
+using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
@@ -9,78 +13,122 @@ namespace AutoFabricator
     public class Window_FabricatorControlExtended : Window
     {
         private Comp_FabricatorController controller;
-        private Vector2 specialScrollPosition = Vector2.zero;
-        protected ThingDef selectedThingDef;
-        protected ThingDef selectedStuffDef;
-        protected int synthesizeCount = 1;
-        protected Comp_AutoFabricator chosenFabricator = null;
+        private Vector2 scrollPosition;
         private Vector2 orderListScrollPosition;
+        private Dictionary<string, bool> expandedCategories = new Dictionary<string, bool>();
+        
+        // 特殊配方相关字段
+        private SpecialProductionOption selectedSpecialOption = null;
+        private ThingDef selectedStuffDef = null;
+        private int synthesizeCount = 1;
+        
+        private float LeftlineHight = 40f;
+        private Comp_AutoFabricator chosenFab = null;
 
-        private SpecialProductionOption selectedSpecialProductionOption;
         public Window_FabricatorControlExtended(Comp_FabricatorController controller)
         {
             this.controller = controller;
-            this.forcePause = true;
-            this.doCloseX = true;
-            this.draggable = true;
+            this.doCloseButton = true;
+            this.absorbInputAroundWindow = true;
             this.closeOnClickedOutside = true;
         }
 
-        public override Vector2 InitialSize => new Vector2(520f, 520f);
+        public override Vector2 InitialSize => new Vector2(900f, 600f);
 
         public override void DoWindowContents(Rect inRect)
         {
-            float leftWidth = 220f;
-            Rect leftRect = new Rect(inRect.x, inRect.y, leftWidth, inRect.height);
-            Rect rightRect = new Rect(inRect.x + leftWidth + 10f, inRect.y, inRect.width - leftWidth - 10f, inRect.height);
+            Text.Font = GameFont.Medium;
+            Widgets.Label(new Rect(0f, 0f, inRect.width, 40f), "SpecialProductionController".Translate());
+            Widgets.DrawLineHorizontal(0f, 42f, inRect.width);
+
+            Text.Font = GameFont.Small;
+
+            if (!controller.IsConnected)
+            {
+                GUI.color = Color.red;
+                Widgets.Label(new Rect(0f, 50f, 200f, 30f), "NotConnected".Translate());
+                GUI.color = Color.white;
+                return;
+            }
+
+            // 左侧：特殊配方列表
+            Rect leftRect = new Rect(inRect.x, inRect.y + 50f, 350f, inRect.height - 60f);
+            Widgets.DrawMenuSection(leftRect);
+
+            // 右侧：订单详情/订单列表
+            Rect rightRect = new Rect(leftRect.xMax + 10f, leftRect.y, inRect.width - leftRect.width - 20f, leftRect.height);
+            Widgets.DrawMenuSection(rightRect);
 
             DrawSpecialProductionList(leftRect);
             DrawSelectedThingPanel(rightRect);
         }
 
-        // 宸︿晶浠呮樉绀簊pecialProductions
-        protected virtual void DrawSpecialProductionList(Rect rect)
+        private int CalculateSpecialProductNum()
+        {
+            return controller.Props.specialProductions?.Count ?? 0;
+        }
+
+        private void DrawSpecialProductionList(Rect rect)
         {
             var specials = controller.Props.specialProductions;
-            float rowHeight = 28f;
-            float listHeight = specials.Count * rowHeight;
-            Rect outRect = new Rect(rect.x, rect.y, rect.width, rect.height);
-            Rect viewRect = new Rect(0, 0, outRect.width - 16f, listHeight);
-
-            Widgets.BeginScrollView(outRect, ref specialScrollPosition, viewRect);
-            float curY = 0f;
-            for (int i = 0; i < specials.Count; i++)
+            if (specials == null || specials.Count == 0)
             {
-                var sp = specials[i];
-                Rect lineRect = new Rect(10f, curY, viewRect.width - 20f, rowHeight - 4f);
-                if (Widgets.ButtonInvisible(lineRect))
+                Text.Font = GameFont.Small;
+                Widgets.Label(new Rect(rect.x + 10f, rect.y + 10f, rect.width - 20f, 30f), "NoSpecialProductions".Translate());
+                return;
+            }
+
+            Rect viewRect = new Rect(0, 0, rect.width - 16f, CalculateSpecialProductNum() * LeftlineHight);
+            Widgets.BeginScrollView(rect, ref scrollPosition, viewRect);
+
+            float curY = 0f;
+            foreach (var option in specials)
+            {
+                if (option == null || option.ProductDef == null) continue;
+
+                float iconSize = 18f;
+                float padding = 6f;
+                string label = option.customLabel ?? option.ProductDef.LabelCap;
+                float textWidth = Text.CalcSize(label).x;
+                float startX = 10f;
+
+                Rect rowRect = new Rect(startX, curY, viewRect.width - 20f, LeftlineHight);
+                Rect iconRect = new Rect(startX, curY + (LeftlineHight - iconSize) / 2, iconSize, iconSize);
+                Widgets.ThingIcon(iconRect, option.ProductDef);
+
+                Rect textRect = new Rect(startX + iconSize + padding, curY + (LeftlineHight - iconSize) / 2, textWidth, LeftlineHight);
+                Widgets.Label(textRect, label);
+
+                if (Widgets.ButtonInvisible(rowRect))
                 {
-                    selectedThingDef = sp.ProductDef;
+                    selectedSpecialOption = option;
                     selectedStuffDef = null;
                     synthesizeCount = 1;
-                    selectedSpecialProductionOption = sp;
                 }
-                Widgets.Label(lineRect, sp.ProductDef.LabelCap);
-                if (selectedThingDef == sp.ProductDef)
+
+                if (selectedSpecialOption == option)
                 {
-                    Widgets.DrawHighlightSelected(lineRect);
+                    Widgets.DrawHighlightSelected(rowRect);
                 }
-                curY += rowHeight;
+
+                curY += LeftlineHight;
             }
+
             Widgets.EndScrollView();
         }
 
-        
-        protected virtual void DrawSelectedThingPanel(Rect rect)
+        private void DrawSelectedThingPanel(Rect rect)
         {
             Widgets.DrawMenuSection(rect);
             float y = rect.y + 10f;
             float x = rect.x + 10f;
             float width = rect.width - 20f;
-            if (selectedThingDef == null)
+
+            // 未选择特殊配方时显示订单列表
+            if (selectedSpecialOption == null)
             {
                 Text.Font = GameFont.Medium;
-                Widgets.Label(new Rect(rect.x + 10f, rect.y + 10f, rect.width - 20f, 30f), "OrderList".Translate());
+                Widgets.Label(new Rect(x, y, width, 30f), "OrderList".Translate());
                 y += 35f;
                 Text.Font = GameFont.Small;
 
@@ -89,24 +137,40 @@ namespace AutoFabricator
                     return;
                 }
 
-                float rowHeight = 26f;
+                float rowHeight = 40f;
                 float listHeight = controller.ProductionOrders.Count * rowHeight;
                 Rect outRect = new Rect(rect.x, y, rect.width, rect.height - (y - rect.y));
                 Rect viewRect = new Rect(0, 0, outRect.width - 16f, listHeight);
 
                 Widgets.BeginScrollView(outRect, ref orderListScrollPosition, viewRect);
                 float curY = 0f;
-                foreach (var orderkv in controller.OrderAllocationDict)
+                foreach (var order in controller.ProductionOrders)
                 {
-                    var order = orderkv.Key;
-                    //if (order == null) continue;
+                    if (order == null) continue;
                     string stuffStr = order.StuffDef != null ? $"({order.StuffDef.LabelCap})" : "";
-                    string line = $"{order.ProductDef.LabelCap}{stuffStr} x{order.Quantity}" + " " + "Remaining" + " : " + order.leftQuantity;
-                    line += controller.OrderAllocationDict[order] != null ? controller.OrderAllocationDict[order]?.TryGetComp<Comp_AutoFabricator>()?.FabricatorID.ToString() : "None";
+                    string line = $"{order.ProductDef.LabelCap}{stuffStr} x{order.Quantity}" + " " + "Remaining".Translate() + " : " + order.leftQuantity + " ";
+                    
+                    if (controller.OrderAllocationDict.ContainsKey(order))
+                    {
+                        if (controller.OrderAllocationDict[order] != null)
+                        {
+                            Comp_AutoFabricator af = controller.OrderAllocationDict[order].TryGetComp<Comp_AutoFabricator>();
+                            if (af != null)
+                            {
+                                line += af.FabricatorID;
+                                line += " " + "Status".Translate() + ":" + (af.StateCheck() ? "Working".Translate() : "Broken".Translate());
+                            }
+                            else
+                            {
+                                line += "None";
+                            }
+                        }
+                    }
+
                     Rect lineRect = new Rect(10f, curY, viewRect.width - 60f, 40f);
                     Widgets.Label(lineRect, line);
 
-                    Rect delRect = new Rect(viewRect.width - 50f, curY, 80f, 35f);
+                    Rect delRect = new Rect(viewRect.width - 50f, curY, 70f, 35f);
                     if (Widgets.ButtonText(delRect, "Delete"))
                     {
                         controller.RemoveOrder(order, true);
@@ -118,69 +182,106 @@ namespace AutoFabricator
                 return;
             }
 
-            
-
+            // 已选择特殊配方，显示详情
             Text.Font = GameFont.Medium;
-            Widgets.Label(new Rect(x, y, width, 30f), selectedThingDef.LabelCap);
+            string optionLabel = selectedSpecialOption.customLabel ?? selectedSpecialOption.ProductDef.LabelCap;
+            Widgets.Label(new Rect(x, y, width, 30f), optionLabel);
             y += 35f;
             Text.Font = GameFont.Small;
 
-            Widgets.Label(new Rect(x, y, width, 24f), "Quantity".Translate());
-            Rect countRect = new Rect(x + 50f, y, 60f, 24f);
-            string countBuffer = synthesizeCount.ToString();
-            Widgets.TextFieldNumeric(countRect, ref synthesizeCount, ref countBuffer, 1, 100);
-            y += 30f;
+            // 显示工作量信息
+            Widgets.Label(new Rect(x, y, width, 24f), "WorkAmount".Translate() + ": " + selectedSpecialOption.workToMake);
+            y += 26f;
 
+            // 显示每次生产数量
+            Widgets.Label(new Rect(x, y, width, 24f), "ProductionPerBill".Translate() + ": " + selectedSpecialOption.productionCountPerBill);
+            y += 26f;
+
+            // 材料需求
+            Widgets.Label(new Rect(x, y, width, 24f), "Materials".Translate().Resolve());
+            y += 26f;
+            foreach (var cost in selectedSpecialOption.specialCostList ?? new List<ThingDefCountClass>())
+            {
+                Widgets.Label(new Rect(x + 10f, y, width - 10f, 24f), $"{cost.thingDef.LabelCap} x{cost.count}");
+                y += 24f;
+            }
+
+            // 材质选择（如果有）
+            if (selectedSpecialOption.specialStuffCategories != null && selectedSpecialOption.specialStuffCategories.Count > 0)
+            {
+                TaggedString stuffLabel = ((selectedStuffDef != null) ? selectedStuffDef.LabelCap : "ChooseStuff".Translate());
+                if (Widgets.ButtonText(new Rect(x, y, 160f, 28f), stuffLabel))
+                {
+                    List<FloatMenuOption> options = new List<FloatMenuOption>();
+                    foreach (var stuff in DefDatabase<ThingDef>.AllDefs.Where(td =>
+                        td.IsStuff && td.stuffProps != null && selectedSpecialOption.specialStuffCategories.Any(cat => td.stuffProps.categories.Contains(cat))))
+                    {
+                        options.Add(new FloatMenuOption(stuff.LabelCap, () =>
+                        {
+                            selectedStuffDef = stuff;
+                        }));
+                    }
+                    Find.WindowStack.Add(new FloatMenu(options));
+                }
+                y += 34f;
+            }
+
+            // 生产次数
+            Widgets.Label(new Rect(x, y, 80f, 28f), "Quantity".Translate());
+            string buffer = synthesizeCount.ToString();
+            Widgets.TextFieldNumeric(new Rect(x + 80f, y, 60f, 28f), ref synthesizeCount, ref buffer, 1, 999);
+            y += 34f;
+
+            // 选择组装机
+            TaggedString FabricatorLabel = ((chosenFab != null) ? chosenFab.FabricatorID.Translate() : "ChooseFabricator".Translate());
             
-            if (Widgets.ButtonText(new Rect(x, y, 120f, 30f), "ChooseFabricator".Translate()))
+            if (Widgets.ButtonText(new Rect(x, y, 120f, 30f), FabricatorLabel))
             {
                 List<FloatMenuOption> options = new List<FloatMenuOption>();
-                foreach (var fab in controller.AutoFabricators)
+                foreach (var fab in controller.AutoFabricators.Where(f => f.currentOrder == null))
                 {
-                    if (fab.currentOrder != null) return;
-                    int hash = fab.GetHashCode();
-                    options.Add(new FloatMenuOption("Fabricator".Translate() + $"HashID: {hash}", () =>
+                    string id = fab.FabricatorID;
+                    options.Add(new FloatMenuOption(id, () =>
                     {
-                        chosenFabricator = fab;
+                        chosenFab = fab;
                     }));
                 }
                 if (options.Count == 0)
                     options.Add(new FloatMenuOption("FabricatorsAllBusy".Translate(), null));
                 Find.WindowStack.Add(new FloatMenu(options));
             }
-            y += 40f;
+            y += 34f;
 
-            if (chosenFabricator != null)
-            {
-                Widgets.Label(new Rect(x, y, width, 24f), "Fabricator".Translate() + $"HashID:"+ chosenFabricator.GetHashCode());
-                y += 30f;
-            }
-
+            // 确认按钮
             if (Widgets.ButtonText(new Rect(x + 40f, rect.yMax - 80f, 120f, 32f), "Confirm"))
             {
-                if (synthesizeCount > 0)
+                if (synthesizeCount > 0 && selectedSpecialOption != null)
                 {
                     var order = new ProductionOrder
                     {
-                        ProductDef = selectedThingDef,
+                        ProductDef = selectedSpecialOption.ProductDef,
                         Quantity = synthesizeCount,
                         leftQuantity = synthesizeCount,
-                        stackCountPerBill = selectedSpecialProductionOption.productionCountPerBill,
-                        TotalWorkNeeded = selectedThingDef.GetStatValueAbstract(StatDefOf.WorkToMake)
+                        stackCountPerBill = selectedSpecialOption.productionCountPerBill,
+                        //worktomake = selectedSpecialOption.workToMake,
+                        TotalWorkNeeded = selectedSpecialOption.workToMake
                     };
 
-
-                    if (selectedThingDef.MadeFromStuff && selectedStuffDef == null)
+                    // 材质处理
+                    if (selectedSpecialOption.specialStuffCategories != null && selectedSpecialOption.specialStuffCategories.Count > 0)
                     {
-                        selectedStuffDef = GenStuff.DefaultStuffFor(selectedThingDef);
-                    }
-                    if (selectedStuffDef != null)
-                    {
-                        order.StuffDef = selectedStuffDef;
+                        if (selectedStuffDef == null)
+                        {
+                            selectedStuffDef = GenStuff.DefaultStuffFor(selectedSpecialOption.ProductDef);
+                        }
+                        if (selectedStuffDef != null)
+                        {
+                            order.StuffDef = selectedStuffDef;
+                        }
                     }
 
-                    controller.AddOrder(order, chosenFabricator);
-                    Messages.Message($"BillOrderAdded".Translate() + ":" + $"{selectedThingDef.LabelCap} x{synthesizeCount}", MessageTypeDefOf.TaskCompletion, false);
+                    controller.AddOrder(order, chosenFab);
+                    Messages.Message($"BillOrderAdded".Translate() + ":" + $"{optionLabel} x{synthesizeCount}", MessageTypeDefOf.TaskCompletion, false);
                     Close();
                 }
             }

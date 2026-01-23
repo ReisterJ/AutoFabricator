@@ -47,10 +47,10 @@ namespace AutoFabricator
         public int FabricatorCurrentIndex => fabricatorCurrentIndex;
         private int fabricatorCurrentIndex = 0;
 
-        public string FabricatorID => "Fabricator".Translate() +" "+ this.FabricatorCurrentIndex;
+        public string FabricatorID => "Fabricator".Translate() +" "+ Math.Abs( this.GetHashCode() ) % 10000;
         public Comp_AutoFabricator()
         {
-            fabricatorIndex++;
+            //fabricatorIndex++;
             
             innerContainer = new ThingOwner<Thing>(this);
         }
@@ -66,10 +66,12 @@ namespace AutoFabricator
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
+            /*
             if(fabricatorCurrentIndex == 0)
             {
                 fabricatorCurrentIndex = fabricatorIndex;
             }
+            */
             powerComp = parent.GetComp<CompPowerTrader>();
             facilitiesComp = parent.GetComp<CompAffectedByFacilities>();
 
@@ -213,7 +215,7 @@ namespace AutoFabricator
         {
             if (currentOrder != null) return;
             //Log.Message("Received order: " + order.ProductDef.defName + " x" + order.leftQuantity);
-            currentOrder = order.DeepCopy();
+            currentOrder = order;
             workProgress = 0f;
             isProducing = false;
             
@@ -378,13 +380,15 @@ namespace AutoFabricator
             {
                 return 0f;
             }
+            bool workMultiplierApplied = Util_Production.HasQualityComp(currentOrder.ProductDef);
             float work = Util_Production.WorktoMakeSimple(currentOrder.ProductDef);
+            if (!workMultiplierApplied) return work;
             if (facilitiesComp != null)
             {
                 foreach (var facility in facilitiesComp.LinkedFacilitiesListForReading)
                 {
                     var qualityModule = facility.TryGetComp<Comp_FabricatorQualityModule>();
-                    if (qualityModule != null)
+                    if (qualityModule != null )
                     {
                         work *= qualityModule.MoreWorkNeeded;
                     }
