@@ -209,7 +209,7 @@ namespace AutoFabricator
                     if (order == null) continue;
                     string stuffStr = order.StuffDef != null ? $"({order.StuffDef.LabelCap})" : "";
                     
-                    string line = $"{order.ProductDef.LabelCap}{stuffStr} x{order.Quantity}" +" "+ "Remaining".Translate() +" : " +order.leftQuantity+" ";
+                    string line = $"{order.ProductDef.LabelCap}{stuffStr} x{order.Quantity}" +" "+ "Remaining".Translate() +" : " + order.leftQuantity +" ";
                     if (controller.OrderAllocationDict.ContainsKey(order))
                     {
                         if (controller.OrderAllocationDict[order]!= null)

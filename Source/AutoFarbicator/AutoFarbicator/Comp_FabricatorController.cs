@@ -190,11 +190,24 @@ namespace AutoFabricator
             if (pd == null) return;
             if (ControllerForced)
             {
+                Comp_AutoFabricator fab = null;
                 if (Order_Allocation.ContainsKey(pd))
                 {
-                    Order_Allocation[pd]?.GetComp<Comp_AutoFabricator>()?.AbondonCurrentOrder();
+                    fab = Order_Allocation[pd]?.GetComp<Comp_AutoFabricator>();
                 }
-                
+                // Fallback: allocation may be null after load before BFS reconnects it
+                if (fab == null)
+                {
+                    foreach (var autofab in AutoFabricators)
+                    {
+                        if (autofab.currentOrder?.CurrentIndex == pd.CurrentIndex)
+                        {
+                            fab = autofab;
+                            break;
+                        }
+                    }
+                }
+                fab?.AbondonCurrentOrder();
             }
             Order_Allocation.Remove(pd);
             ProductionOrders.Remove(pd);
@@ -208,6 +221,8 @@ namespace AutoFabricator
                 RemoveOrder(pd);
             }
         }
+
+
 
         public virtual void FabricatorAbondonOrder(ProductionOrder pd, Comp_AutoFabricator autoFabricator)
         {
@@ -246,7 +261,7 @@ namespace AutoFabricator
 
         protected void SuspendedOrderReassign()
         {
-            if(ProductionOrders.Count <= 0)
+            if(ProductionOrders.Count <= 0 || AutoFabricators.Count <= 0)
             {
                 return;
             }
@@ -262,13 +277,18 @@ namespace AutoFabricator
                         {
                             if (autofab.currentOrder?.CurrentIndex == pd.CurrentIndex)
                             {
+                                // Re-link the fabricator's currentOrder to the controller's canonical instance
+                                // so that mutations like leftQuantity-- are reflected in the UI.
+                                autofab.currentOrder = pd;
                                 Order_Allocation[pd] = autofab.parent;
                                 onefabworking = true;
                                 break;
                             }
                         }
-                        if (!onefabworking)
+                        if (!onefabworking && AutoFabricators.Count > 0)
                         {
+                            // Only remove if fabricators were discovered but none is working on this order.
+                            // If AutoFabricators is empty, BFS hasn't run yet — keep the null entry for later reconnection.
                             Order_Allocation.Remove(pd);
                         }
                     }

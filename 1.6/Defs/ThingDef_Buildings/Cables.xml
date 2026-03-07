@@ -10,11 +10,6 @@
         <graphicData>
         <texPath>Things/Building/Linked/PowerConduit_Atlas</texPath>
         <graphicClass>Graphic_Single</graphicClass>
-        <linkType>Transmitter</linkType>
-        
-        <linkFlags>
-            <li>PowerConduit</li>
-        </linkFlags>
         <damageData>
             <rect>(0,0.35,1,0.3)</rect>
         </damageData>
@@ -23,7 +18,7 @@
         <uiIconScale>0.7</uiIconScale>
         <tickerType>Normal</tickerType>
         <building>
-            <isPowerConduit>true</isPowerConduit>
+            <isPowerConduit>false</isPowerConduit>
             <ai_chillDestination>false</ai_chillDestination>
             <isInert>true</isInert>
             <isEdifice>false</isEdifice>
@@ -55,9 +50,7 @@
             </li> -->
             <li Class="AutoFabricator.CompProperties_Cable"></li>
         </comps>
-        <placeWorkers>
-            <li>PlaceWorker_Conduit</li>
-        </placeWorkers>
+
         <rotatable>false</rotatable>
         <selectable>true</selectable>
         <neverMultiSelect>true</neverMultiSelect>
@@ -71,9 +64,7 @@
         <researchPrerequisites>
             <li>Electricity</li>
         </researchPrerequisites>
-        <replaceTags>
-            <li>Conduit</li>
-        </replaceTags>
+
     </ThingDef>
 
 </Defs>

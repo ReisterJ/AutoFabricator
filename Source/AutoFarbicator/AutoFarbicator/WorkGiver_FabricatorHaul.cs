@@ -24,26 +24,34 @@ namespace AutoFabricator
                     yield return comp;
             }
         }
-        
-       
+
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            
             var comp = t.TryGetComp<Comp_AutoFabricator>();
-            if(comp == null)
+            if (comp == null) return false;
+            if (!comp.NeedHaulWork()) return false;
+            if (!pawn.CanReserve(t, 1, -1, null, forced)) return false;
+
+            // 必须确认至少有一种原材料在地图上可以找到
+            foreach (var need in comp.pendingMaterials)
             {
-                return false;
+                int needed = need.count - comp.GetStoredMaterial(need.thingDef);
+                if (needed > 0)
+                {
+                    Thing found = GenClosest.ClosestThingReachable(
+                        pawn.Position, pawn.Map,
+                        ThingRequest.ForDef(need.thingDef),
+                        PathEndMode.ClosestTouch,
+                        TraverseParms.For(pawn),
+                        9999f,
+                        x => !x.IsForbidden(pawn) && pawn.CanReserve(x)
+                    );
+                    if (found != null) return true;
+                }
             }
-            if (!comp.NeedHaulWork())
-            {
-                return false;
-            }
-            if (!pawn.CanReserve(t, 1, -1, null, forced))
-            {
-                return false;
-            }
-            return true;
+            return false; // 没有任何可达原材料，不应该报告有工作可做
         }
+        
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {

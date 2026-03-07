@@ -33,7 +33,7 @@
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>2800</WorkToBuild>
       <Flammability>1.0</Flammability>
-      <ResearchSpeedFactor>0.75</ResearchSpeedFactor>
+      <!-- <ResearchSpeedFactor>0.75</ResearchSpeedFactor> -->
     </statBases>
     <placeWorkers>
       <li>PlaceWorker_PreventInteractionSpotOverlap</li>

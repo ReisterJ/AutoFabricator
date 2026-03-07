@@ -15,9 +15,8 @@ namespace AutoFabricator
         private Comp_FabricatorController controller;
         private Vector2 scrollPosition;
         private Vector2 orderListScrollPosition;
-        private Dictionary<string, bool> expandedCategories = new Dictionary<string, bool>();
+        protected Dictionary<string, bool> expandedCategories = new Dictionary<string, bool>();
         
-        // 特殊配方相关字段
         private SpecialProductionOption selectedSpecialOption = null;
         private ThingDef selectedStuffDef = null;
         private int synthesizeCount = 1;
@@ -51,11 +50,11 @@ namespace AutoFabricator
                 return;
             }
 
-            // 左侧：特殊配方列表
+            // 特殊配方列表
             Rect leftRect = new Rect(inRect.x, inRect.y + 50f, 350f, inRect.height - 60f);
             Widgets.DrawMenuSection(leftRect);
 
-            // 右侧：订单详情/订单列表
+            // 订单详情/订单列表
             Rect rightRect = new Rect(leftRect.xMax + 10f, leftRect.y, inRect.width - leftRect.width - 20f, leftRect.height);
             Widgets.DrawMenuSection(rightRect);
 
@@ -124,7 +123,6 @@ namespace AutoFabricator
             float x = rect.x + 10f;
             float width = rect.width - 20f;
 
-            // 未选择特殊配方时显示订单列表
             if (selectedSpecialOption == null)
             {
                 Text.Font = GameFont.Medium;

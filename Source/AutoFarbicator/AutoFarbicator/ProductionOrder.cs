@@ -9,7 +9,7 @@ using Verse;
 
 namespace AutoFabricator
 {
-    public class ProductionOrder : IExposable,ILoadReferenceable
+    public class ProductionOrder : IExposable, ILoadReferenceable
     {
         //public string ProductDefName;
         public int Quantity; // 总生产次数
@@ -23,6 +23,14 @@ namespace AutoFabricator
 
         public ThingDef StuffDef = null;
 
+        //special
+        public bool isSpecialOption = false;
+        public int productionCountPerBill = 1; //每次生产数量，xml指定
+        public int specialBillWorkToMake = 1000;
+        public List<ThingDefCountClass> specialCostList = new List<ThingDefCountClass>();
+        public List<StuffCategoryDef> specialStuffCategories = new List<StuffCategoryDef>();
+        public int stuffCount = 20;
+
         public bool Allocated = false;
 
         public Comp_AutoFabricator AllocatedFabricator;
@@ -32,18 +40,18 @@ namespace AutoFabricator
         public long CurrentIndex => currentIndex;
 
         protected static long orderIndex = 0;
-        
-        
+
+
 
         public ProductionOrder()
         {
-            orderIndex++;
+            orderIndex = Find.TickManager.TicksAbs;
             SetCurrentIndex();
         }
         public void SetCurrentIndex()
         {
             currentIndex = orderIndex;
-        }   
+        }
         public void IndexCopy(ProductionOrder pd)
         {
             this.currentIndex = pd.CurrentIndex;
@@ -56,7 +64,13 @@ namespace AutoFabricator
             Scribe_Values.Look(ref orderIndex, "orderIndex");
             Scribe_Values.Look(ref leftQuantity, "leftQuantity");
             Scribe_Defs.Look(ref StuffDef, "StuffDef");
-            Scribe_Values.Look(ref currentIndex, "orderIndex");
+            Scribe_Values.Look(ref currentIndex, "currentIndex");
+            Scribe_Values.Look(ref isSpecialOption, "isSpecialOption", false);
+            Scribe_Values.Look(ref productionCountPerBill, "productionCountPerBill", 1);
+            Scribe_Values.Look(ref specialBillWorkToMake, "specialBillWorkToMake", 1000);
+            Scribe_Collections.Look(ref specialCostList, "specialCostList", LookMode.Deep);
+            Scribe_Collections.Look(ref specialStuffCategories, "specialStuffCategories", LookMode.Def);
+            Scribe_Values.Look(ref stuffCount, "stuffCount", 20);
         }
 
         public ProductionOrder DeepCopy()

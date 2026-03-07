@@ -47,6 +47,7 @@ namespace AutoFabricator
         public int FabricatorCurrentIndex => fabricatorCurrentIndex;
         private int fabricatorCurrentIndex = 0;
 
+
         public string FabricatorID => "Fabricator".Translate() +" "+ Math.Abs( this.GetHashCode() ) % 10000;
         public Comp_AutoFabricator()
         {
