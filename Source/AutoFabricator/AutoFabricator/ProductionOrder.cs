@@ -45,8 +45,7 @@ namespace AutoFabricator
 
         public ProductionOrder()
         {
-            orderIndex = Find.TickManager.TicksAbs;
-            SetCurrentIndex();
+            currentIndex = ++orderIndex;
         }
         public void SetCurrentIndex()
         {
@@ -61,10 +60,12 @@ namespace AutoFabricator
         {
             Scribe_Defs.Look(ref ProductDef, "ProductDef");
             Scribe_Values.Look(ref Quantity, "quantity");
-            Scribe_Values.Look(ref orderIndex, "orderIndex");
             Scribe_Values.Look(ref leftQuantity, "leftQuantity");
             Scribe_Defs.Look(ref StuffDef, "StuffDef");
             Scribe_Values.Look(ref currentIndex, "currentIndex");
+            // Keep the static counter above all loaded indices so new orders never collide.
+            if (Scribe.mode == LoadSaveMode.LoadingVars && currentIndex > orderIndex)
+                orderIndex = currentIndex;
             Scribe_Values.Look(ref isSpecialOption, "isSpecialOption", false);
             Scribe_Values.Look(ref productionCountPerBill, "productionCountPerBill", 1);
             Scribe_Values.Look(ref specialBillWorkToMake, "specialBillWorkToMake", 1000);
@@ -89,7 +90,7 @@ namespace AutoFabricator
 
         public string GetUniqueLoadID()
         {
-            return "ProductionOrder_" + ProductDef.defName + "_" + this.GetHashCode();
+            return "ProductionOrder_" + currentIndex;
         }
 
     }

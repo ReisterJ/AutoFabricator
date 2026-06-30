@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFabricator", "AutoFarbicator\AutoFabricator.csproj", "{71B2137D-2F6C-4B72-8500-6FA6D18A4725}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFabricator", "AutoFabricator\AutoFabricator.csproj", "{71B2137D-2F6C-4B72-8500-6FA6D18A4725}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

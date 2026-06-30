@@ -275,11 +275,10 @@ namespace AutoFabricator
                         
                         foreach (var autofab in AutoFabricators)
                         {
-                            if (autofab.currentOrder?.CurrentIndex == pd.CurrentIndex)
+                            // After load, Scribe_References guarantees autofab.currentOrder already
+                            // points to the canonical controller instance, so reference equality is safe.
+                            if (autofab.currentOrder == pd)
                             {
-                                // Re-link the fabricator's currentOrder to the controller's canonical instance
-                                // so that mutations like leftQuantity-- are reflected in the UI.
-                                autofab.currentOrder = pd;
                                 Order_Allocation[pd] = autofab.parent;
                                 onefabworking = true;
                                 break;

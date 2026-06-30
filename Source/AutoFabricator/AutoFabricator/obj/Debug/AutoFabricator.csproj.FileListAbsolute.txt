@@ -1,0 +1,6 @@
+E:\workstation\rimworld\task\AutoFabricator\1.6\Assemblies\AutoFabricator.dll
+E:\workstation\rimworld\task\AutoFabricator\1.6\Assemblies\AutoFabricator.pdb
+E:\workstation\rimworld\task\AutoFabricator\Source\AutoFabricator\AutoFabricator\obj\Debug\AutoFabricator.csproj.AssemblyReference.cache
+E:\workstation\rimworld\task\AutoFabricator\Source\AutoFabricator\AutoFabricator\obj\Debug\AutoFabricator.csproj.CoreCompileInputs.cache
+E:\workstation\rimworld\task\AutoFabricator\Source\AutoFabricator\AutoFabricator\obj\Debug\AutoFabricator.dll
+E:\workstation\rimworld\task\AutoFabricator\Source\AutoFabricator\AutoFabricator\obj\Debug\AutoFabricator.pdb

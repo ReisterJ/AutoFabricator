@@ -566,7 +566,7 @@ namespace AutoFabricator
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Deep.Look(ref currentOrder, "currentOrder");
+            Scribe_References.Look(ref currentOrder, "currentOrder");
             Scribe_Values.Look(ref workProgress, "workProgress");
             Scribe_Values.Look(ref isProducing, "isProducing");
             Scribe_Collections.Look(ref pendingMaterials, "pendingMaterials", LookMode.Deep);
